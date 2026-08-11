@@ -26,3 +26,6 @@ backend/*.sql
 # Postman collection (contains auth tokens/secrets)
 backend/beverages_ecommerce_postman.json
 
+# Local production credentials (NEVER commit)
+backend/credentials.md
+
