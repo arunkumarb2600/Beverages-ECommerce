@@ -1,0 +1,328 @@
+/* Auth.css - Styling for Login and Registration Pages */
+
+.authPage {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+  background: linear-gradient(135deg, #f0fdf4 0%, #e0f2fe 50%, #f8fafc 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Background decorative bubbles */
+.authPage::before, .authPage::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  z-index: 1;
+}
+
+.authPage::before {
+  width: 300px;
+  height: 300px;
+  background-color: rgba(16, 185, 129, 0.15); /* primary green */
+  top: -100px;
+  right: -50px;
+}
+
+.authPage::after {
+  width: 400px;
+  height: 400px;
+  background-color: rgba(2, 132, 199, 0.12); /* secondary blue */
+  bottom: -150px;
+  left: -100px;
+}
+
+.authCard {
+  background-color: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: var(--radius-xl);
+  padding: 48px;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: var(--shadow-xl);
+  z-index: 2;
+  animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.authHeader {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.authLogo {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--text-main);
+  margin-bottom: 12px;
+}
+
+.authLogoIcon {
+  color: var(--primary-color);
+  font-size: 2.2rem;
+}
+
+.authTitle {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.authSubtitle {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  margin-top: 6px;
+}
+
+.authForm {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  position: relative;
+}
+
+.formLabel {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-main);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.inputIconWrapper {
+  position: relative;
+}
+
+.inputIcon {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-light);
+  font-size: 1.1rem;
+  pointer-events: none;
+  transition: var(--transition-fast);
+}
+
+.authInput {
+  padding-left: 44px; /* Space for left icon */
+}
+
+.authInput:focus + .inputIcon {
+  color: var(--secondary-color);
+}
+
+.authInputError {
+  border-color: var(--error-color) !important;
+}
+
+.authInputError:focus {
+  box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.15) !important;
+}
+
+.formHelperRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.9rem;
+  margin-top: -4px;
+}
+
+.rememberMeLabel {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.forgotPasswordLink {
+  color: var(--secondary-color);
+  font-weight: 600;
+}
+
+.forgotPasswordLink:hover {
+  color: var(--secondary-hover);
+  text-decoration: underline;
+}
+
+.authButton {
+  background: linear-gradient(135deg, var(--primary-color) 0%, #059669 100%);
+  color: var(--text-white);
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 14px;
+  border-radius: var(--radius-md);
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+  overflow: hidden;
+}
+
+.authButton:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(16, 185, 129, 0.3);
+}
+
+.authButton:active {
+  transform: translateY(0);
+}
+
+.authButton:disabled {
+  background: var(--text-light);
+  box-shadow: none;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Spinner Animation */
+.spinner {
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: white;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.authFooter {
+  text-align: center;
+  margin-top: 24px;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+}
+
+.authFooterLink {
+  color: var(--primary-color);
+  font-weight: 700;
+  margin-left: 6px;
+}
+
+.authFooterLink:hover {
+  color: var(--primary-hover);
+  text-decoration: underline;
+}
+
+/* Error alerts list */
+.errorAlert {
+  background-color: #fef2f2;
+  border: 1px solid #fee2e2;
+  border-left: 4px solid var(--error-color);
+  border-radius: var(--radius-sm);
+  padding: 12px 16px;
+  color: #b91c1c;
+  font-size: 0.85rem;
+  font-weight: 500;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.errorAlertIcon {
+  margin-top: 2px;
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+/* Password strength meter list */
+.passwordStrengthList {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+  margin-top: 4px;
+  padding: 10px;
+  background-color: #f8fafc;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+}
+
+.strengthItem {
+  font-size: 0.75rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.strengthItem.valid {
+  color: var(--success-color);
+}
+
+.strengthItem.invalid {
+  color: var(--text-muted);
+}
+
+/* Success screen (verification / password reset) */
+.authSuccessScreen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 16px;
+  padding: 24px 8px 8px;
+}
+
+.authSuccessIcon {
+  font-size: 3.5rem;
+  color: var(--success-color);
+}
+
+.authSuccessTitle {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin: 0;
+}
+
+.authSuccessText {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.authSuccessScreen .authButton {
+  width: 100%;
+  margin-top: 8px;
+}
+
+@media (max-width: 576px) {
+  .authCard {
+    padding: 32px 20px;
+  }
+}
